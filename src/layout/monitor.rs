@@ -14,8 +14,7 @@ use super::insert_hint_element::{InsertHintElement, InsertHintRenderElement};
 use super::scrolling::{Column, ColumnWidth};
 use super::tile::Tile;
 use super::workspace::{
-    compute_working_area, OutputId, Workspace, WorkspaceAddWindowTarget, WorkspaceId,
-    WorkspaceRenderElement,
+    compute_working_area, Workspace, WorkspaceAddWindowTarget, WorkspaceId, WorkspaceRenderElement,
 };
 use super::{compute_overview_zoom, ActivateWindow, HitType, LayoutElement, Options};
 use crate::animation::{Animation, Clock};
@@ -557,7 +556,7 @@ impl<W: LayoutElement> Monitor<W> {
 
         // After adding a new window, workspace becomes this output's own.
         if workspace.name().is_none() {
-            workspace.original_output = OutputId::new(&self.output);
+            workspace.set_original_output(&self.output);
         }
 
         if workspace_idx == self.workspaces.len() - 1 {
@@ -602,7 +601,7 @@ impl<W: LayoutElement> Monitor<W> {
 
         // After adding a new window, workspace becomes this output's own.
         if workspace.name().is_none() {
-            workspace.original_output = OutputId::new(&self.output);
+            workspace.set_original_output(&self.output);
         }
 
         if workspace_idx == self.workspaces.len() - 1 {
@@ -636,7 +635,7 @@ impl<W: LayoutElement> Monitor<W> {
 
         // After adding a new window, workspace becomes this output's own.
         if workspace.name().is_none() {
-            workspace.original_output = OutputId::new(&self.output);
+            workspace.set_original_output(&self.output);
         }
 
         // Since we're adding window to an existing column, the workspace isn't empty, and
