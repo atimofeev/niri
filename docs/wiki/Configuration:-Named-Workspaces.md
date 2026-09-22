@@ -46,12 +46,13 @@ Before, it could only use the connector name.
 This means that named workspaces "stick" to their original output in more cases, reflecting their more permanent nature.
 Explicitly moving a named workspace to a different monitor will still update its original output.
 
-<sup>Since: next release</sup> You can now pass several outputs to `open-on-output`.
+<sup>Since: next release</sup> You can now write multiple `open-on-output` lines.
 If the first output is not connected, the workspace will open on the second output, and so on.
 
 ```kdl
 workspace "browser" {
-    open-on-output "DP-9" "DP-4"
+    open-on-output "DP-9"
+    open-on-output "DP-4"
 }
 ```
 

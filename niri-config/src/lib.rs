@@ -962,7 +962,8 @@ mod tests {
             }
 
             workspace "workspace-1" {
-                open-on-output "eDP-1" "DP-1"
+                open-on-output "eDP-1"
+                open-on-output "DP-1"
             }
             workspace "workspace-2"
             workspace "workspace-3"
